@@ -1,34 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>FUTO Course Registration Portal</title>
- <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>FUTO Course Registration Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
- <h1>FUTO Course Registration Portal</h1>
+
+<header class="main-header">
+    <div class="header-content">
+        <img src="futo-logo.png" alt="FUTO Logo" class="logo">
+        <div>
+            <h1>FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI</h1>
+            <p>Course Registration Portal</p>
+        </div>
+    </div>
 </header>
-<section id="login">
- <h2>Student Login</h2>
- <input type="text" id="studentId" placeholder="Student ID">
- <input type="password" id="password" placeholder="Password">
- <button onclick="login()">Login</button>
+
+<section id="login-section" class="card">
+    <h2>Student Login</h2>
+    <input type="text" id="studentName" placeholder="Enter Full Name">
+    <input type="text" placeholder="Matric Number">
+    <button onclick="login()">Login</button>
 </section>
-<section id="dashboard" style="display:none;">
- <h2>Course Registration</h2>
- <select id="semester">
- <option>First Semester</option>
- <option>Second Semester</option>
- </select>
- <h3>Select Courses</h3>
- <div>
- <input type="checkbox"> CSC 309 - Discrete Structures<br>
- <input type="checkbox"> CSC 301 - Data Structures<br>
- <input type="checkbox"> MTH 305 - Linear Algebra<br>
- <input type="checkbox"> STA 307 - Probability
- </div>
- <button onclick="register()">Register Courses</button>
+
+<section id="dashboard" class="hidden">
+
+    <div class="card">
+        <h2>Welcome, <span id="displayName"></span></h2>
+        <p>Select your courses below:</p>
+    </div>
+
+    <div class="card">
+        <h3>Available Courses</h3>
+
+        <label><input type="checkbox" value="3" onchange="calculateCredits()"> CSC 309 - Discrete Structures (3 Units)</label>
+        <label><input type="checkbox" value="3" onchange="calculateCredits()"> CSC 301 - Data Structures (3 Units)</label>
+        <label><input type="checkbox" value="2" onchange="calculateCredits()"> MTH 305 - Linear Algebra (2 Units)</label>
+        <label><input type="checkbox" value="3" onchange="calculateCredits()"> STA 307 - Probability (3 Units)</label>
+        <label><input type="checkbox" value="2" onchange="calculateCredits()"> GST 302 - Entrepreneurship (2 Units)</label>
+
+        <h4>Total Credit Load: <span id="totalCredits">0</span></h4>
+
+        <button onclick="submitRegistration()">Submit Registration</button>
+    </div>
+
 </section>
+
+<footer>
+    <p>© 2026 FUTO Course Registration System</p>
+</footer>
+
 <script src="script.js"></script>
 </body>
-   </html>
+ </html>
