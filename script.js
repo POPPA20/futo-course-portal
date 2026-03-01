@@ -1,6 +1,34 @@
 function login() {
- document.getElementById("login").style.display = "none";
- document.getElementById("dashboard").style.display = "block";
+    const name = document.getElementById("studentName").value;
+
+    if (name === "") {
+        alert("Please enter your name");
+        return;
+    }
+
+    document.getElementById("displayName").innerText = name;
+    document.getElementById("login-section").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
 }
-function register() {
- alert("Courses Registered Successfully!");
+
+function calculateCredits() {
+    let total = 0;
+    const checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
+
+    checkboxes.forEach(box => {
+        total += parseInt(box.value);
+    });
+
+    document.getElementById("totalCredits").innerText = total;
+}
+
+function submitRegistration() {
+    const total = document.getElementById("totalCredits").innerText;
+
+    if (total == 0) {
+        alert("Please select at least one course.");
+        return;
+    }
+
+    alert("Registration Successful!\nTotal Credits: " + total);
+}
